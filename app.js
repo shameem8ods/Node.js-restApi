@@ -15,8 +15,9 @@ mongoose.connect(process.env.DATABASE,{ useNewUrlParser: true })
     
 })
 app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Methods", "POST,GET,OPTIONS");
+    req.setHeader("Access-Control-Allow-Origin", "*");
+    req.setHeader("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+    req.setHeader("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, X-Requested-With");
     if (req.method == "OPTIONS") {
       return res.sendStatus(200);
     }
